@@ -2,11 +2,13 @@ import React, { useState, useEffect, useRef, RefObject } from "react";
 import { Outlet, NavLink, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import styles from "./Layout.module.css";
+import appLogo from "../../assets/AHEAD-Rev-Logo-WEB.png";
 
 import { useLogin } from "../../authConfig";
 
 import { LoginButton } from "../../components/LoginButton";
 import { IconButton } from "@fluentui/react";
+import { CenterHorizontal20Filled } from "@fluentui/react-icons";
 
 const Layout = () => {
     const { t } = useTranslation();
@@ -39,10 +41,10 @@ const Layout = () => {
             <header className={styles.header} role={"banner"}>
                 <div className={styles.headerContainer} ref={menuRef}>
                     <Link to="/" className={styles.headerTitleContainer}>
-                        <h3 className={styles.headerTitle}>{t("headerTitle")}</h3>
+                        <img src={appLogo} alt="App logo" width="80" height="20" />
                     </Link>
                     <nav>
-                        <ul className={`${styles.headerNavList} ${menuOpen ? styles.show : ""}`}>
+                        <ul className={`${styles.headerNavList} ${menuOpen ? styles.show : ""}`} style={{ marginRight: 90 }}>
                             <li>
                                 <NavLink
                                     to="/"
@@ -52,7 +54,7 @@ const Layout = () => {
                                     {t("chat")}
                                 </NavLink>
                             </li>
-                            <li>
+                            {/* <li>
                                 <NavLink
                                     to="/qa"
                                     className={({ isActive }) => (isActive ? styles.headerNavPageLinkActive : styles.headerNavPageLink)}
@@ -60,7 +62,7 @@ const Layout = () => {
                                 >
                                     {t("qa")}
                                 </NavLink>
-                            </li>
+                            </li> */}
                         </ul>
                     </nav>
                     <div className={styles.loginMenuContainer}>

@@ -1,5 +1,6 @@
 import { Sparkle28Filled } from "@fluentui/react-icons";
+import aiLogo from "../../assets/AI-icon.svg";
 
 export const AnswerIcon = () => {
-    return <Sparkle28Filled primaryFill={"rgba(115, 118, 225, 1)"} aria-hidden="true" aria-label="Answer logo" />;
+    return <img src={aiLogo} width="40" height="40" />;
 };
