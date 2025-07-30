@@ -44,12 +44,11 @@
 .chatMessageStream {
     flex-grow: 1;
     max-height: 64rem;
-    width: 75%;
+    width: 65%;
     overflow-y: auto;
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
-    resize: horizontal;
     /* min-width: 50vw;
     max-width: 75rem; */
 }
@@ -61,7 +60,7 @@
 }
 
 .chatMessageGptMinWidth {
-    max-width: 31.25rem;
+    max-width: 100%;
     margin-bottom: 1.25rem;
 }
 
@@ -70,9 +69,10 @@
     bottom: 0;
     flex: 0 0 6.25rem;
     padding: 1rem;
-    width: 75%;
+    width: 65%;
     /* max-width: 75rem; */
     background: #f2f2f2;
+    font-family: "Poppins";
 }
 
 .chatAnalysisPanel {
@@ -111,7 +111,10 @@
 
 @media (min-width: 992px) {
     .container {
-        margin-top: 1.25rem;
+        margin-top: 2.7rem;
+        position: fixed;
+        /* align-items: center; */
+        width: 100%;
     }
 
     .chatEmptyState {
@@ -141,7 +144,7 @@
     }
 
     .chatMessageGpt {
-        max-width: 80%;
+        max-width: 100%;
         min-width: 31.25rem;
     }
 }

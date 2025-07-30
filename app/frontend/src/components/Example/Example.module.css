@@ -17,6 +17,7 @@
     flex-direction: column;
     margin-bottom: 0.3125rem;
     cursor: pointer;
+    /* font-family: "Poppins"; */
 }
 
 .example:hover {
@@ -32,6 +33,8 @@
     width: 25rem;
     padding: 0.5rem;
     min-height: 4.5rem;
+    text-align: center;
+    /* font-family: "Poppins"; */
 }
 
 .examplesNavList li {

@@ -11,6 +11,12 @@
 .questionInputTextArea {
     width: 100%;
     line-height: 2.5rem;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: pre-wrap;
+    word-break: break-word;
+    box-sizing: border-box;
 }
 
 .questionInputButtonsContainer {
@@ -21,6 +27,6 @@
 
 @media (min-width: 992px) {
     .questionInputContainer {
-        height: 5.625rem;
+        max-height: 11.625rem;
     }
 }

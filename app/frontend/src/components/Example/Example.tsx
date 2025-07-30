@@ -9,7 +9,9 @@ interface Props {
 export const Example = ({ text, value, onClick }: Props) => {
     return (
         <div className={styles.example} onClick={() => onClick(value)}>
-            <p className={styles.exampleText}>{text}</p>
+            <p className={styles.exampleText} style={{ fontFamily: "Poppins" }}>
+                {text}
+            </p>
         </div>
     );
 };

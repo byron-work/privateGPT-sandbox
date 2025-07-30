@@ -71,7 +71,7 @@ export const HistoryPanel = ({
     return (
         <Panel
             type={PanelType.customNear}
-            style={{ padding: "0px" }}
+            style={{ padding: "0px", marginTop: "2.7rem" }}
             headerText={t("history.chatHistory")}
             customWidth="300px"
             isBlocking={false}

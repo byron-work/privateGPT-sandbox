@@ -34,13 +34,13 @@
     },
     "developerSettings": "Developer settings",
 
-    "chatEmptyStateTitle": "Chat with your data",
-    "chatEmptyStateSubtitle": "Ask anything or try an example",
+    "chatEmptyStateTitle": "Secure. Smart. Strategic.",
+    "chatEmptyStateSubtitle": "Ask, analyze, and act - empowered by AHEAD's platform for efficiency, innovation, and security.",
     "defaultExamples": {
-        "1": "Summarize the SOW between AHEAD and UofM.",
-        "2": "What are the key deliverables in the AHEAD and UofM SOW?",
-        "3": "What is the scope of work for the AHEAD and UofM SOW?",
-        "placeholder": "Type a new question (e.g. how many ATL based servers do we have?)"
+        "1": "Answers from AHEAD sources only",
+        "2": "Answers from AHEAD + general knowledge",
+        "3": "Open chat, no AHEAD grounding",
+        "placeholder": "Type a new question or select an example"
     },
     "askTitle": "Ask your data",
     "gpt4vExamples": {

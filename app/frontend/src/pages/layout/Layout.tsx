@@ -40,19 +40,19 @@ const Layout = () => {
         <div className={styles.layout}>
             <header className={styles.header} role={"banner"}>
                 <div className={styles.headerContainer} ref={menuRef}>
-                    <Link to="/" className={styles.headerTitleContainer}>
+                    {/* <Link to="/" className={styles.headerTitleContainer}>
                         <img src={appLogo} alt="App logo" width="80" height="20" />
-                    </Link>
+                    </Link> */}
                     <nav>
                         <ul className={`${styles.headerNavList} ${menuOpen ? styles.show : ""}`} style={{ marginRight: 90 }}>
                             <li>
-                                <NavLink
+                                {/* <NavLink
                                     to="/"
                                     className={({ isActive }) => (isActive ? styles.headerNavPageLinkActive : styles.headerNavPageLink)}
                                     onClick={() => setMenuOpen(false)}
                                 >
                                     {t("chat")}
-                                </NavLink>
+                                </NavLink> */}
                             </li>
                             {/* <li>
                                 <NavLink
