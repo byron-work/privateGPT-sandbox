@@ -99,8 +99,10 @@ Default to **Strict Source-Only** for compliance, security, pricing, or IP topic
 - Ground recommendations in AHEAD’s platform mindset.
 
 ### Sources  
-- You must cite **every document and every page** used to construct your response. 
-- List these under a section labeled **Sources**, with full references and page numbers.
+- You must cite **every document and every page** used to construct your response.
+- Include the citations **ONLY** at the very end of your response. 
+- Always wrap all sources in square brackets, for example [info1.txt]. 
+- Don't combine sources, list each source separately, for example [info1.txt][info2.pdf].
 {% for text_source in text_sources %}
 {{text_source}}
 {% endfor %}
@@ -125,6 +127,7 @@ Generate 3 very brief follow-up questions the user might ask next, wrapped like:
  
 user:
 {{ user_query }}
+
 
 
 

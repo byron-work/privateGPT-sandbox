@@ -33,7 +33,6 @@ function isCitationValid(contextDataPoints: any, citationCandidate: string): boo
 export function parseAnswerToHtml(answer: ChatAppResponse, isStreaming: boolean, onCitationClicked: (citationFilePath: string) => void): HtmlParsedAnswer {
     const contextDataPoints = answer.context.data_points;
     const citations: string[] = [];
-
     // Trim any whitespace from the end of the answer after removing follow-up questions
     let parsedAnswer = answer.message.content.trim();
 
@@ -53,6 +52,7 @@ export function parseAnswerToHtml(answer: ChatAppResponse, isStreaming: boolean,
     }
 
     const parts = parsedAnswer.split(/\[([^\]]+)\]/g);
+    console.log(parts);
 
     const fragments: string[] = parts.map((part, index) => {
         if (index % 2 === 0) {
@@ -80,7 +80,6 @@ export function parseAnswerToHtml(answer: ChatAppResponse, isStreaming: boolean,
             );
         }
     });
-
     return {
         answerHtml: fragments.join(""),
         citations
