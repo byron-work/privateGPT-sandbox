@@ -52,7 +52,6 @@ export function parseAnswerToHtml(answer: ChatAppResponse, isStreaming: boolean,
     }
 
     const parts = parsedAnswer.split(/\[([^\]]+)\]/g);
-    console.log(parts);
 
     const fragments: string[] = parts.map((part, index) => {
         if (index % 2 === 0) {
