@@ -147,4 +147,36 @@
         max-width: 100%;
         min-width: 31.25rem;
     }
+
+    .chatMessageStream {
+        overflow: auto;
+        /* Reserve scrollbar space so layout doesn't shift */
+        scrollbar-gutter: stable both-edges;
+        scrollbar-width: none; /* Hide scrollbar in Firefox */
+    }
+
+    /* WebKit browsers: base scrollbar style */
+    .chatMessageStream::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    /* Scrollbar thumb starts invisible */
+    .chatMessageStream::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Firefox scrollbar thumb color */
+    .chatMessageStream {
+        scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+    }
+
+    /* Show during scroll or hover */
+    .chatMessageStream.scrolling::-webkit-scrollbar-thumb,
+    .chatMessageStream:hover::-webkit-scrollbar-thumb {
+        opacity: 1;
+    }
 }

@@ -1,3 +1,6 @@
+/* Chat.module.css */
+
+/* Container stays as-is */
 .questionInputContainer {
     border-radius: 0.5rem;
     box-shadow:
@@ -8,6 +11,7 @@
     background: white;
 }
 
+/* Scrollable input area with reserved gutter */
 .questionInputTextArea {
     width: 100%;
     line-height: 2.5rem;
@@ -17,6 +21,32 @@
     white-space: pre-wrap;
     word-break: break-word;
     box-sizing: border-box;
+
+    /* Prevent width jump when the scrollbar appears */
+    scrollbar-gutter: stable both-edges;
+    scrollbar-width: none; /* Firefox hides track by default */
+
+    /* Firefox thumb color so it matches when shown */
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+/* WebKit scrollbars: fixed width, thumb fades */
+.questionInputTextArea::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.questionInputTextArea::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    opacity: 0; /* start hidden */
+    transition: opacity 0.3s ease;
+}
+
+/* Show during scroll or hover */
+.questionInputTextArea.scrolling::-webkit-scrollbar-thumb,
+.questionInputTextArea:hover::-webkit-scrollbar-thumb {
+    opacity: 1;
 }
 
 .questionInputButtonsContainer {
