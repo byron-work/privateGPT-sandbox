@@ -44,10 +44,10 @@
     },
     "askTitle": "Ask your data",
     "gpt4vExamples": {
-        "1": "Compare the impact of interest rates and GDP in financial markets.",
-        "2": "What is the expected trend for the S&P 500 index over the next five years? Compare it to the past S&P 500 performance",
-        "3": "Can you identify any correlation between oil prices and stock market trends?",
-        "placeholder": "Example: Does my plan cover annual eye exams?"
+        "1": "Answers from AHEAD sources only",
+        "2": "Answers from AHEAD + general knowledge",
+        "3": "Open chat, no AHEAD grounding",
+        "placeholder": "Type a new question or select an example"
     },
     "generatingAnswer": "Generating answer",
     "citationWithColon": "Citation:",
