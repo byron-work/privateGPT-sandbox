@@ -12,12 +12,11 @@
 .example {
     word-break: break-word;
     background: #dbdbdb;
-    border-radius: 0.5rem;
+    border-radius: 2.5rem;
     display: flex;
     flex-direction: column;
     margin-bottom: 0.3125rem;
     cursor: pointer;
-    /* font-family: "Poppins"; */
 }
 
 .example:hover {
@@ -34,7 +33,6 @@
     padding: 0.5rem;
     min-height: 4.5rem;
     text-align: center;
-    /* font-family: "Poppins"; */
 }
 
 .examplesNavList li {
