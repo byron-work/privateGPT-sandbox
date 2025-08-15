@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Panel, DefaultButton } from "@fluentui/react";
 import readNDJSONStream from "ndjson-readablestream";
 
-import appLogo from "../../assets/AHEAD-Logo-WEB.png";
+import appLogo from "../../assets/AHEAD-Rev-Logo-WEB.png";
 import styles from "./Chat.module.css";
 
 import {
@@ -431,7 +431,11 @@ const Chat = () => {
                         <HistoryButton className={styles.commandButton} onClick={() => setIsHistoryPanelOpen(!isHistoryPanelOpen)} />
                     )}
                 </div>
-                <img src={appLogo} alt="App logo" width="120" height="30" style={{ marginLeft: "43rem", position: "absolute" }} />
+                {isHistoryPanelOpen ? (
+                    <img src={appLogo} alt="App logo" width="120" height="30" style={{ marginLeft: "34rem" }} />
+                ) : (
+                    <img src={appLogo} alt="App logo" width="120" height="30" style={{ marginLeft: "5rem" }} />
+                )}
                 <div className={styles.commandsContainer}>
                     <ClearChatButton className={styles.commandButton} onClick={clearChat} disabled={!lastQuestionRef.current || isLoading} />
                     {showUserUpload && <UploadFile className={styles.commandButton} disabled={!loggedIn} />}

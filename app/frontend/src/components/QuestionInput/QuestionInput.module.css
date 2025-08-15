@@ -3,12 +3,12 @@
 /* Container stays as-is */
 .questionInputContainer {
     border-radius: 2.5rem;
-    /* box-shadow:
-        0px 0.5rem 1rem rgba(0, 0, 0, 0.14),
-        0px 0px 0.125rem rgba(0, 0, 0, 0.12); */
     width: 100%;
     padding: 0.8rem;
-    background: #f2f2f2;
+    background: #0d2538;
+    background-attachment: fixed; /* keep it static when scrolling */
+    background-repeat: no-repeat;
+    background-size: cover;
     border-width: 2px;
     border-style: solid;
     border-color: #dbdbdb;

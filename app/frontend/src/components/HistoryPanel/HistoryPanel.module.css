@@ -1,6 +1,7 @@
 .group {
     margin-top: 1rem;
 }
+
 .groupLabel {
     font-size: 0.9rem;
     font-weight: bold;
@@ -11,4 +12,24 @@
 .footer {
     display: flex;
     justify-content: space-between;
+}
+
+/* For Chrome, Edge, and Safari */
+.historyPanel::-webkit-scrollbar {
+    width: 8px; /* scrollbar width */
+}
+
+.historyPanel::-webkit-scrollbar-track {
+    background: transparent; /* no background */
+}
+
+.historyPanel::-webkit-scrollbar-thumb {
+    background-color: rgba(80, 80, 80, 0.6); /* scrollbar handle color */
+    border-radius: 4px;
+}
+
+/* For Firefox */
+.historyPanel {
+    scrollbar-width: thin; /* makes it thinner */
+    scrollbar-color: rgba(100, 100, 100, 0.6) transparent; /* thumb color, track transparent */
 }

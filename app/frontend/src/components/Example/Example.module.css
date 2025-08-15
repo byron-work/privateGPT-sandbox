@@ -11,12 +11,22 @@
 
 .example {
     word-break: break-word;
-    background: #dbdbdb;
+    background: linear-gradient(
+        160deg,
+        /* angle of the gradient */ #0c1a2b 0%,
+        /* deep navy tone at top left */ #0e2233 35%,
+        /* mid blue tone */ #0d2538 65%,
+        /* darker blue */ #091827 100% /* almost black at bottom right */
+    );
+    background-attachment: fixed; /* keep it static when scrolling */
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 2.5rem;
     display: flex;
     flex-direction: column;
     margin-bottom: 0.3125rem;
     cursor: pointer;
+    /* font-family: "Poppins"; */
 }
 
 .example:hover {
