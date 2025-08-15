@@ -30,6 +30,7 @@ import { HistoryButton } from "../../components/HistoryButton";
 import { SettingsButton } from "../../components/SettingsButton";
 import { ClearChatButton } from "../../components/ClearChatButton";
 import { UploadFile } from "../../components/UploadFile";
+import { JumpToLatestButton } from "../../components/JumpToLatestButton";
 import { useLogin, getToken, requireAccessControl } from "../../authConfig";
 import { useMsal } from "@azure/msal-react";
 import { TokenClaimsDisplay } from "../../components/TokenClaimsDisplay";
@@ -39,7 +40,7 @@ import { Settings } from "../../components/Settings/Settings";
 
 const Chat = () => {
     const [isConfigPanelOpen, setIsConfigPanelOpen] = useState(false);
-    const [isHistoryPanelOpen, setIsHistoryPanelOpen] = useState(false);
+    const [isHistoryPanelOpen, setIsHistoryPanelOpen] = useState(true);
     const [promptTemplate, setPromptTemplate] = useState<string>("");
     const [temperature, setTemperature] = useState<number>(0.3);
     const [seed, setSeed] = useState<number | null>(null);
@@ -66,6 +67,7 @@ const Chat = () => {
 
     const lastQuestionRef = useRef<string>("");
     const chatMessageStreamEnd = useRef<HTMLDivElement | null>(null);
+    const chatMessageStream = useRef<HTMLDivElement | null>(null);
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [isStreaming, setIsStreaming] = useState<boolean>(false);
@@ -93,6 +95,8 @@ const Chat = () => {
     const [showChatHistoryCosmos, setShowChatHistoryCosmos] = useState<boolean>(false);
     const [showAgenticRetrievalOption, setShowAgenticRetrievalOption] = useState<boolean>(false);
     const [useAgenticRetrieval, setUseAgenticRetrieval] = useState<boolean>(false);
+
+    const [showJumpToLatest, setShowJumpToLatest] = useState<boolean>(false);
 
     const audio = useRef(new Audio()).current;
     const [isPlaying, setIsPlaying] = useState(false);
@@ -134,12 +138,20 @@ const Chat = () => {
             setShowSpeechOutputAzure(config.showSpeechOutputAzure);
             setShowChatHistoryBrowser(config.showChatHistoryBrowser);
             setShowChatHistoryCosmos(config.showChatHistoryCosmos);
+            setIsHistoryPanelOpen((useLogin && config.showChatHistoryCosmos) || config.showChatHistoryBrowser);
             setShowAgenticRetrievalOption(config.showAgenticRetrievalOption);
             setUseAgenticRetrieval(config.showAgenticRetrievalOption);
             if (config.showAgenticRetrievalOption) {
                 setRetrieveCount(10);
             }
         });
+    };
+
+    const handleScroll = () => {
+        const el = chatMessageStream.current;
+        if (!el) return;
+        const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 20;
+        setShowJumpToLatest(!atBottom);
     };
 
     const handleAsyncRequest = async (question: string, answers: [string, ChatAppResponse][], responseBody: ReadableStream<any>) => {
@@ -289,11 +301,23 @@ const Chat = () => {
         setIsStreaming(false);
     };
 
-    useEffect(() => chatMessageStreamEnd.current?.scrollIntoView({ behavior: "smooth" }), [isLoading]);
-    useEffect(() => chatMessageStreamEnd.current?.scrollIntoView({ behavior: "auto" }), [streamedAnswers]);
+    useEffect(() => {
+        chatMessageStreamEnd.current?.scrollIntoView({ behavior: "smooth" });
+        setShowJumpToLatest(false);
+    }, [isLoading]);
+    useEffect(() => {
+        chatMessageStreamEnd.current?.scrollIntoView({ behavior: "auto" });
+        setShowJumpToLatest(false);
+    }, [streamedAnswers]);
     useEffect(() => {
         getConfig();
     }, []);
+    useEffect(() => {
+        const el = chatMessageStream.current;
+        if (!el) return;
+        el.addEventListener("scroll", handleScroll);
+        return () => el.removeEventListener("scroll", handleScroll);
+    }, [answers, streamedAnswers]);
 
     const handleSettingsChange = (field: string, value: any) => {
         switch (field) {
@@ -403,18 +427,24 @@ const Chat = () => {
             </Helmet>
             <div className={styles.commandsSplitContainer}>
                 <div className={styles.commandsContainer}>
-                    {((useLogin && showChatHistoryCosmos) || showChatHistoryBrowser) && (
+                    {!isHistoryPanelOpen && ((useLogin && showChatHistoryCosmos) || showChatHistoryBrowser) && (
                         <HistoryButton className={styles.commandButton} onClick={() => setIsHistoryPanelOpen(!isHistoryPanelOpen)} />
                     )}
                 </div>
-                <img src={appLogo} alt="App logo" width="120" height="30" style={{ marginLeft: "5rem" }} />
+                <img src={appLogo} alt="App logo" width="120" height="30" style={{ marginLeft: "43rem", position: "absolute" }} />
                 <div className={styles.commandsContainer}>
                     <ClearChatButton className={styles.commandButton} onClick={clearChat} disabled={!lastQuestionRef.current || isLoading} />
                     {showUserUpload && <UploadFile className={styles.commandButton} disabled={!loggedIn} />}
                     <SettingsButton className={styles.commandButton} onClick={() => setIsConfigPanelOpen(!isConfigPanelOpen)} />
                 </div>
             </div>
-            <div className={styles.chatRoot} style={{ marginLeft: isHistoryPanelOpen ? "300px" : "0" }}>
+            <div
+                className={styles.chatRoot}
+                style={{
+                    marginLeft: isHistoryPanelOpen ? "300px" : "0",
+                    width: isHistoryPanelOpen ? "calc(100% - 300px)" : "100%"
+                }}
+            >
                 <div className={styles.chatContainer}>
                     {!lastQuestionRef.current ? (
                         <div className={styles.chatEmptyState}>
@@ -425,7 +455,7 @@ const Chat = () => {
                             <ExampleList onExampleClicked={onExampleClicked} useGPT4V={useGPT4V} />
                         </div>
                     ) : (
-                        <div className={styles.chatMessageStream}>
+                        <div className={styles.chatMessageStream} ref={chatMessageStream}>
                             {isStreaming &&
                                 streamedAnswers.map((streamedAnswer, index) => (
                                     <div key={index}>
@@ -490,6 +520,14 @@ const Chat = () => {
                             ) : null}
                             <div ref={chatMessageStreamEnd} />
                         </div>
+                    )}
+                    {showJumpToLatest && (
+                        <JumpToLatestButton
+                            onClick={() => {
+                                chatMessageStreamEnd.current?.scrollIntoView({ behavior: "smooth" });
+                                setShowJumpToLatest(false);
+                            }}
+                        />
                     )}
 
                     <div className={styles.chatInput}>

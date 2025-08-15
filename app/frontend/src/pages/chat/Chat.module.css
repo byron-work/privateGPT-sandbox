@@ -2,7 +2,6 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
 }
 
 .chatRoot {
@@ -17,6 +16,7 @@
     align-items: center;
     width: 100%;
     max-height: calc(100vh - 10rem);
+    position: relative;
 }
 
 .chatEmptyState {
@@ -105,6 +105,16 @@
     align-self: flex-end;
 }
 
+.leftCommands {
+    position: absolute;
+    left: 0;
+}
+
+.rightCommands {
+    position: absolute;
+    right: 0;
+}
+
 .commandButton {
     margin-bottom: 1.25rem;
 }
@@ -161,6 +171,10 @@
         height: 8px;
     }
 
+    .chatMessageStream::-webkit-scrollbar-track {
+        background: #f2f2f2;
+    }
+
     /* Scrollbar thumb starts invisible */
     .chatMessageStream::-webkit-scrollbar-thumb {
         background: rgba(0, 0, 0, 0.3);
@@ -171,7 +185,7 @@
 
     /* Firefox scrollbar thumb color */
     .chatMessageStream {
-        scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+        scrollbar-color: rgba(0, 0, 0, 0.3) #f2f2f2;
     }
 
     /* Show during scroll or hover */
