@@ -70,15 +70,8 @@
     flex: 0 0 6.25rem;
     padding: 1rem;
     width: 65%;
-    /* max-width: 75rem; */
-    background: linear-gradient(
-        160deg,
-        /* angle of the gradient */ #0c1a2b 0%,
-        /* deep navy tone at top left */ #0e2233 35%,
-        /* mid blue tone */ #0d2538 65%,
-        /* darker blue */ #091827 100% /* almost black at bottom right */
-    );
-    background-attachment: fixed; /* keep it static when scrolling */
+    background: linear-gradient(160deg, #0c1a2b 0%, #0e2233 35%, #0d2538 65%, #091827 100%);
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     font-family: "Poppins";
@@ -169,7 +162,6 @@
 
     .chatMessageStream {
         overflow: auto;
-        /* Reserve scrollbar space so layout doesn't shift */
         scrollbar-gutter: stable both-edges;
         scrollbar-width: none; /* Hide scrollbar in Firefox */
     }

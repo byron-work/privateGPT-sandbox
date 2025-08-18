@@ -19,14 +19,8 @@
 }
 
 html {
-    background: linear-gradient(
-        160deg,
-        /* angle of the gradient */ #0c1a2b 0%,
-        /* deep navy tone at top left */ #0e2233 35%,
-        /* mid blue tone */ #0d2538 65%,
-        /* darker blue */ #091827 100% /* almost black at bottom right */
-    );
-    background-attachment: fixed; /* keep it static when scrolling */
+    background: linear-gradient(160deg, #0c1a2b 0%, #0e2233 35%, #0d2538 65%, #091827 100%);
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     font-size: 12px; /* Root font size for 320px width screens */
@@ -58,16 +52,11 @@ body {
     height: 100%;
 }
 
+/* History Panel Styling - only takes effect at index.css level - need to look into why for cleaner code */
 .ms-Panel-main {
     color: var(--text-primary);
-    background: linear-gradient(
-        160deg,
-        /* angle of the gradient */ #0c1a2b 0%,
-        /* deep navy tone at top left */ #0e2233 35%,
-        /* mid blue tone */ #0d2538 65%,
-        /* darker blue */ #091827 100% /* almost black at bottom right */
-    );
-    background-attachment: fixed; /* keep it static when scrolling */
+    background: linear-gradient(160deg, #0c1a2b 0%, #0e2233 35%, #0d2538 65%, #091827 100%);
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: none;
@@ -75,7 +64,7 @@ body {
 
 .ms-Panel-commands {
     background: #0d2538;
-    background-attachment: fixed; /* keep it static when scrolling */
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
 }
