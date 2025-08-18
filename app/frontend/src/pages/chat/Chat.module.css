@@ -70,7 +70,7 @@
     flex: 0 0 6.25rem;
     padding: 1rem;
     width: 65%;
-    background: linear-gradient(160deg, #0c1a2b 0%, #0e2233 35%, #0d2538 65%, #091827 100%);
+    background: var(--bg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;

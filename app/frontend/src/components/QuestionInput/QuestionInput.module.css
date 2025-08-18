@@ -5,13 +5,13 @@
     border-radius: 2.5rem;
     width: 100%;
     padding: 0.8rem;
-    background: #0d2538;
+    background: var(--bg-surface);
     background-attachment: fixed; /* keep it static when scrolling */
     background-repeat: no-repeat;
     background-size: cover;
     border-width: 2px;
     border-style: solid;
-    border-color: #dbdbdb;
+    border-color: var(--border-subtle);
 }
 
 /* Scrollable input area with reserved gutter */

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { MsalProvider } from "@azure/msal-react";
 import { LoginContext } from "./loginContext";
 import Layout from "./pages/layout/Layout";
+import { ThemeProvider } from "./themeContext";
 
 const LayoutWrapper = () => {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -33,7 +34,22 @@ const LayoutWrapper = () => {
         }, []);
 
         return (
-            <MsalProvider instance={msalInstance}>
+            <ThemeProvider>
+                <MsalProvider instance={msalInstance}>
+                    <LoginContext.Provider
+                        value={{
+                            loggedIn,
+                            setLoggedIn
+                        }}
+                    >
+                        <Layout />
+                    </LoginContext.Provider>
+                </MsalProvider>
+            </ThemeProvider>
+        );
+    } else {
+        return (
+            <ThemeProvider>
                 <LoginContext.Provider
                     value={{
                         loggedIn,
@@ -42,18 +58,7 @@ const LayoutWrapper = () => {
                 >
                     <Layout />
                 </LoginContext.Provider>
-            </MsalProvider>
-        );
-    } else {
-        return (
-            <LoginContext.Provider
-                value={{
-                    loggedIn,
-                    setLoggedIn
-                }}
-            >
-                <Layout />
-            </LoginContext.Provider>
+            </ThemeProvider>
         );
     }
 };

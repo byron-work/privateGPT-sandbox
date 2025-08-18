@@ -9,6 +9,7 @@ import { useLogin } from "../../authConfig";
 import { LoginButton } from "../../components/LoginButton";
 import { IconButton } from "@fluentui/react";
 import { CenterHorizontal20Filled } from "@fluentui/react-icons";
+import { ThemeToggleButton } from "../../components/ThemeToggleButton/ThemeToggleButton";
 
 const Layout = () => {
     const { t } = useTranslation();
@@ -66,6 +67,7 @@ const Layout = () => {
                         </ul>
                     </nav>
                     <div className={styles.loginMenuContainer}>
+                        <ThemeToggleButton className={styles.themeToggle} />
                         {useLogin && <LoginButton />}
                         <IconButton
                             iconProps={{ iconName: "GlobalNavButton" }}

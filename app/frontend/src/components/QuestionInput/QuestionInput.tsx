@@ -85,11 +85,16 @@ export const QuestionInput = ({ onSend, disabled, placeholder, clearOnSend, init
                 onKeyDown={onEnterPress}
                 onCompositionStart={handleCompositionStart}
                 onCompositionEnd={handleCompositionEnd}
-                style={{ fontSize: "1rem", ...{ ["fieldSizing"]: "content", fontFamily: "Poppins", background: "#0d2538", color: "#f3f4f6" } }}
+                style={{
+                    fontSize: "1rem",
+                    ...{ ["fieldSizing"]: "content", fontFamily: "Poppins" },
+                    background: "var(--bg-surface)",
+                    color: "var(--text-primary)"
+                }}
             />
             <div className={styles.questionInputButtonsContainer}>
                 <Tooltip content={t("tooltips.submitQuestion")} relationship="label">
-                    <Button size="large" icon={<Send28Filled primaryFill="#009fdc" />} disabled={sendQuestionDisabled} onClick={sendQuestion} />
+                    <Button size="large" icon={<Send28Filled primaryFill="var(--accent)" />} disabled={sendQuestionDisabled} onClick={sendQuestion} />
                 </Tooltip>
             </div>
             {showSpeechInput && <SpeechInput updateQuestion={setQuestion} />}

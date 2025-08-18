@@ -5,8 +5,9 @@
 }
 
 .header {
-    background-color: #123a61;
-    color: #f2f2f2;
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    box-shadow: 0 2px 4px var(--border-subtle);
 }
 
 .headerContainer {
@@ -39,7 +40,7 @@
     z-index: 100;
     display: none;
     flex-direction: column;
-    background-color: #123a61;
+    background-color: var(--bg-surface);
     position: absolute;
     top: 2.7rem;
     right: 0;
@@ -47,6 +48,8 @@
     list-style: none;
     padding: 1.1rem;
     align-items: flex-end;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
 }
 
 .headerNavList.show {
@@ -55,9 +58,9 @@
 
 .headerNavPageLink {
     padding: 1rem;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--border-subtle);
     text-align: right;
-    color: #f2f2f2;
+    color: var(--text-primary);
     text-decoration: none;
     opacity: 0.75;
     transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
@@ -71,7 +74,7 @@
 }
 
 .headerNavPageLinkActive {
-    color: #f2f2f2;
+    color: var(--accent);
     text-decoration: none;
     font-size: 1.2rem;
     text-align: right;
@@ -86,7 +89,7 @@
     display: block;
     background: none;
     border: none;
-    color: #f2f2f2;
+    color: var(--text-primary);
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 101;
@@ -96,6 +99,13 @@
     display: flex;
     align-items: center;
     gap: 0; /* Ensure no gap between login button and menu toggle */
+}
+
+.themeToggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    margin-right: 0.5rem;
 }
 
 @media (min-width: 992px) {
@@ -110,6 +120,8 @@
         padding: 0;
         position: static;
         width: auto;
+        background: none;
+        border: none;
     }
 
     .headerNavPageLink {
