@@ -8,8 +8,14 @@
 
 .supportingContentItem {
     word-break: break-word;
-    background: rgb(249, 249, 249);
+    background: linear-gradient(160deg, #0c1a2b 0%, #0e2233 35%, #0d2538 65%, #091827 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 0.5em;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--accent);
     box-shadow:
         rgb(0 0 0 / 5%) 0px 0px 0px 0.0625em,
         rgb(0 0 0 / 10%) 0px 0.125em 0.1875em 0px;

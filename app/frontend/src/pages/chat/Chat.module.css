@@ -121,6 +121,26 @@
     margin-bottom: 1.25rem;
 }
 
+/* For Chrome, Edge, and Safari */
+.chatAnalysisPanel::-webkit-scrollbar {
+    width: 8px; /* scrollbar width */
+}
+
+.chatAnalysisPanel::-webkit-scrollbar-track {
+    background: transparent; /* no background */
+}
+
+.chatAnalysisPanel::-webkit-scrollbar-thumb {
+    background-color: rgba(80, 80, 80, 0.6); /* scrollbar handle color */
+    border-radius: 4px;
+}
+
+/* For Firefox */
+.chatAnalysisPanel {
+    scrollbar-width: thin; /* makes it thinner */
+    scrollbar-color: rgba(100, 100, 100, 0.6) transparent; /* thumb color, track transparent */
+}
+
 @media (min-width: 992px) {
     .container {
         margin-top: 2.7rem;
@@ -166,32 +186,23 @@
         scrollbar-width: none; /* Hide scrollbar in Firefox */
     }
 
-    /* WebKit browsers: base scrollbar style */
+    /* For Chrome, Edge, and Safari */
     .chatMessageStream::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
+        width: 8px; /* scrollbar width */
     }
 
     .chatMessageStream::-webkit-scrollbar-track {
-        background: #f2f2f2;
+        background: transparent; /* no background */
     }
 
-    /* Scrollbar thumb starts invisible */
     .chatMessageStream::-webkit-scrollbar-thumb {
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 8px;
-        opacity: 0;
-        transition: opacity 0.3s ease;
+        background-color: rgba(80, 80, 80, 0.6); /* scrollbar handle color */
+        border-radius: 4px;
     }
 
-    /* Firefox scrollbar thumb color */
+    /* For Firefox */
     .chatMessageStream {
-        scrollbar-color: rgba(0, 0, 0, 0.3) #f2f2f2;
-    }
-
-    /* Show during scroll or hover */
-    .chatMessageStream.scrolling::-webkit-scrollbar-thumb,
-    .chatMessageStream:hover::-webkit-scrollbar-thumb {
-        opacity: 1;
+        scrollbar-width: thin; /* makes it thinner */
+        scrollbar-color: rgba(100, 100, 100, 0.6) transparent; /* thumb color, track transparent */
     }
 }
