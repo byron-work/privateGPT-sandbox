@@ -66,8 +66,6 @@ export const HistoryPanel = ({
 
     const groupedHistory = useMemo(() => groupHistory(history), [history]);
 
-    console.log(groupedHistory);
-
     const { t } = useTranslation();
 
     return (

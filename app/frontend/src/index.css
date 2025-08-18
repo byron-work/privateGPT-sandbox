@@ -84,6 +84,10 @@ body {
     color: var(--text-primary);
 }
 
+.content-148 button:hover {
+    background: var(--accent-hover);
+}
+
 @media (min-width: 480px) {
     html {
         font-size: 13px; /* Slightly larger font size for larger phones */
