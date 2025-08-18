@@ -14,7 +14,7 @@ export const JumpToLatestButton = ({ className, onClick }: Props) => {
                 shape="circular"
                 size="large"
                 appearance="primary"
-                icon={<ArrowCircleDown24Filled primaryFill="var(--accent)" />}
+                icon={<ArrowCircleDown24Filled primaryFill="var(--bg-surface)" />}
                 onClick={onClick}
                 aria-label="Jump to latest"
             />

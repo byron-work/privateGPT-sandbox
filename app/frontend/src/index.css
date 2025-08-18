@@ -80,6 +80,10 @@ body {
     background-size: cover;
 }
 
+.headerText-141 {
+    color: var(--text-primary);
+}
+
 @media (min-width: 480px) {
     html {
         font-size: 13px; /* Slightly larger font size for larger phones */

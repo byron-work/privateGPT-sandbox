@@ -68,6 +68,7 @@ export const Answer = ({
                     <AnswerIcon />
                     <div>
                         <IconButton
+                            className={styles.answerIcon}
                             style={{ color: "black" }}
                             iconProps={{ iconName: copied ? "CheckMark" : "Copy" }}
                             title={copied ? t("tooltips.copied") : t("tooltips.copy")}
@@ -75,6 +76,7 @@ export const Answer = ({
                             onClick={handleCopy}
                         />
                         <IconButton
+                            className={styles.answerIcon}
                             style={{ color: "black" }}
                             iconProps={{ iconName: "Lightbulb" }}
                             title={t("tooltips.showThoughtProcess")}
@@ -83,6 +85,7 @@ export const Answer = ({
                             disabled={!answer.context.thoughts?.length || isStreaming}
                         />
                         <IconButton
+                            className={styles.answerIcon}
                             style={{ color: "black" }}
                             iconProps={{ iconName: "ClipboardList" }}
                             title={t("tooltips.showSupportingContent")}

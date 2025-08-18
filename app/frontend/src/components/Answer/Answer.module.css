@@ -12,6 +12,10 @@
     font-size: 1.75em;
 }
 
+.answerIcon:hover {
+    background: var(--accent-hover);
+}
+
 .answerText {
     font-size: 1rem;
     font-weight: 400;

@@ -2,7 +2,7 @@
     position: absolute;
     right: 10rem;
     bottom: 8rem;
-    background: var(--bg-surface);
+    background: var(--accent);
     border-radius: var(--radius-pill);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
